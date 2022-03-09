@@ -2,35 +2,30 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.std_logic_unsigned.all;
 use IEEE.numeric_std.all;
-use IEEE.math_real.all;
-
---library std;
---use std.textio.all;
 
 entity top is
-    Port ( CLK_I : in  STD_LOGIC;
-           VGA_HS_O : out  STD_LOGIC;
-           VGA_VS_O : out  STD_LOGIC;
-           VGA_R : out  STD_LOGIC_VECTOR (3 downto 0);
-           VGA_B : out  STD_LOGIC_VECTOR (3 downto 0);
-           VGA_G : out  STD_LOGIC_VECTOR (3 downto 0));
+    Port ( 
+            CLK_I : in  STD_LOGIC;
+            VGA_HS_O : out  STD_LOGIC;
+            VGA_VS_O : out  STD_LOGIC;
+            VGA_R : out  STD_LOGIC_VECTOR (3 downto 0);
+            VGA_B : out  STD_LOGIC_VECTOR (3 downto 0);
+            VGA_G : out  STD_LOGIC_VECTOR (3 downto 0));
 end top;
 
 architecture Behavioral of top is
 
 component clk_wiz_0
-port
- (-- Clock in ports
+    Port (
   CLK_IN1           : in     std_logic;
-  -- Clock out ports
   CLK_OUT1          : out    std_logic
  );
 end component;
 
 constant FRAME_WIDTH : natural := 1920;
 constant FRAME_HEIGHT : natural := 1080;
-constant H_PIXEL_WIDTH : natural := 480;
-constant V_PIXEL_WIDTH : natural := 270;
+constant H_PIXEL_WIDTH : natural := 30;
+constant V_PIXEL_WIDTH : natural := 34;
 
 constant H_FP : natural := 88; --H front porch width (pixels)
 constant H_PW : natural := 44; --H sync pulse width (pixels)
@@ -63,27 +58,80 @@ signal vga_red : std_logic_vector(3 downto 0);
 signal vga_green : std_logic_vector(3 downto 0);
 signal vga_blue : std_logic_vector(3 downto 0);
 
---signal update_box : std_logic;
---signal pixel_in_box : std_logic;
-
 signal red_colour : std_logic_vector(3 downto 0) := "0101";
 
 signal h_pxl_cntr : std_logic_vector(8 downto 0) := (others =>'0');
 signal v_pxl_cntr : std_logic_vector(8 downto 0) := (others =>'0');
-signal h_pxl : std_logic_vector(3 downto 0) := (others =>'0');
-signal v_pxl : std_logic_vector(3 downto 0) := (others =>'0');
-signal t_pxl_cntr : std_logic_vector(7 downto 0) := (others =>'0');
+signal h_pxl : std_logic_vector(6 downto 0) := (others =>'0');
+signal v_pxl : std_logic_vector(5 downto 0) := (others =>'0');
 
-
-
-
-type rom_type is array (0 to 3, 0 to 3) of std_logic_vector(3 downto 0);
+type rom_type is array (0 to 63, 0 to 31) of std_logic_vector(3 downto 0);
 
 signal ROM : rom_type := (
-    (x"0",x"1",x"2",x"3"),
-    (x"3",x"2",x"1",x"0"),
-    (x"0",x"1",x"2",x"3"),
-    (x"3",x"2",x"1",x"0")
+    (x"f",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"f",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0")
 );
 
 
@@ -92,18 +140,11 @@ begin
    
 clk_div_inst : clk_wiz_0
   port map
-   (-- Clock in ports
+   (
     CLK_IN1 => CLK_I,
-    -- Clock out ports
     CLK_OUT1 => pxl_clk);
 
-----------------------------------------------------------------------------         TEST PATTERN LOGIC           -------
---  vga_red <= "1010" when (active = '1' and h_cntr_reg < 100)  else (others=>'0');
-vga_red <= ROM( to_integer(unsigned(v_pxl)), to_integer(unsigned(h_pxl)) ) when (active = '1') else (others=>'0');
-  
-          
----------------------------------------------------------------------------           SYNC GENERATION             -------
-
+  vga_red <= ROM( to_integer(unsigned(h_pxl)), to_integer(unsigned(v_pxl)) ) when (active = '1') else (others=>'0');
  
   process (pxl_clk)
   begin
@@ -119,12 +160,12 @@ vga_red <= ROM( to_integer(unsigned(v_pxl)), to_integer(unsigned(h_pxl)) ) when 
  process (pxl_clk)
   begin
     if (rising_edge(pxl_clk)) then
-        if (h_pxl_cntr = H_PIXEL_WIDTH - 1) and active ='1' then 
-            h_pxl_cntr <= (others =>'0');
-            h_pxl <= h_pxl + 1;
-        elsif (active ='1') then
-            h_pxl_cntr <= h_pxl_cntr + 1; 
-        end if;
+      if (h_pxl_cntr = H_PIXEL_WIDTH - 1) and active ='1' then 
+        h_pxl_cntr <= (others =>'0');
+        h_pxl <= h_pxl + 1;
+      elsif (active ='1') then
+        h_pxl_cntr <= h_pxl_cntr + 1; 
+      end if;
     end if;
   end process;
   
@@ -135,13 +176,14 @@ vga_red <= ROM( to_integer(unsigned(v_pxl)), to_integer(unsigned(h_pxl)) ) when 
         v_cntr_reg <= (others =>'0');
       elsif (h_cntr_reg = (H_MAX - 1)) then
         v_cntr_reg <= v_cntr_reg + 1;
-        if (v_cntr_reg<1080) then         
+        if (v_cntr_reg<1088) then         
             v_pxl_cntr <= v_pxl_cntr + 1;
             if (v_pxl_cntr = V_PIXEL_WIDTH-1) then
                 v_pxl <= v_pxl + 1;
                 v_pxl_cntr <= (others =>'0');
             end if;
         end if;
+
       end if;
     end if;
   end process;
@@ -157,7 +199,6 @@ vga_red <= ROM( to_integer(unsigned(v_pxl)), to_integer(unsigned(h_pxl)) ) when 
     end if;
   end process;
   
-  
   process (pxl_clk)
   begin
     if (rising_edge(pxl_clk)) then
@@ -169,9 +210,7 @@ vga_red <= ROM( to_integer(unsigned(v_pxl)), to_integer(unsigned(h_pxl)) ) when 
     end if;
   end process;
   
-  
-  active <= '1' when ((h_cntr_reg < FRAME_WIDTH) and (v_cntr_reg < FRAME_HEIGHT))else
-            '0';
+  active <= '1' when ((h_cntr_reg < FRAME_WIDTH) and (v_cntr_reg < FRAME_HEIGHT)) else '0';
 
   process (pxl_clk)
   begin
