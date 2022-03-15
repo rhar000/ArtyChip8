@@ -29,28 +29,28 @@ begin
                 col_sel <= col_sel + 1;
             elsif (count = 100) then
                 if(col_sel = 0) then
-                    if (Row = "1110") then key_num <= 13;
-                    elsif (Row = "1101") then key_num <= 12;
+                    if (Row = "0111") then key_num <= 10;
                     elsif (Row = "1011") then key_num <= 11;
-                    elsif (Row = "0111") then key_num <= 10;
+                    elsif (Row = "1101") then key_num <= 12;
+                    elsif (Row = "1110") then key_num <= 13;
                     end if;
                 elsif(col_sel = 1) then
-                    if (Row = "1110") then key_num <= 14;
-                    elsif (Row = "1101") then key_num <= 9;
+                    if (Row = "0111") then key_num <= 3;
                     elsif (Row = "1011") then key_num <= 6;
-                    elsif (Row = "0111") then key_num <= 3;
+                    elsif (Row = "1101") then key_num <= 9;
+                    elsif (Row = "1110") then key_num <= 14;
                     end if;
                 elsif(col_sel = 2) then
-                    if (Row = "1110") then key_num <= 15;
-                    elsif (Row = "1101") then key_num <= 8;
+                    if (Row = "0111") then key_num <= 2;
                     elsif (Row = "1011") then key_num <= 5;
-                    elsif (Row = "0111") then key_num <= 1;
+                    elsif (Row = "1101") then key_num <= 9;
+                    elsif (Row = "1110") then key_num <= 15;
                     end if;
                 elsif(col_sel = 3) then
-                    if (Row = "1110") then key_num <= 0;
-                    elsif (Row = "1101") then key_num <= 7;
+                    if (Row = "0111") then key_num <= 1;
                     elsif (Row = "1011") then key_num <= 4;
-                    elsif (Row = "0111") then key_num <= 1;        
+                    elsif (Row = "1101") then key_num <= 7;
+                    elsif (Row = "1110") then key_num <= 0;        
                     end if;      
                 end if; 
             end if;

@@ -158,6 +158,9 @@ clk_div_inst : clk_wiz_0
     CLK_OUT1 => pxl_clk);
 
   vga_red <= ROM(to_integer(unsigned(h_pxl)), to_integer(unsigned(v_pxl))) when (active = '1') else (others=>'0');
+  vga_green <= ROM(to_integer(unsigned(h_pxl)), to_integer(unsigned(v_pxl))) when (active = '1') else (others=>'0');
+  vga_blue <= ROM(to_integer(unsigned(h_pxl)), to_integer(unsigned(v_pxl))) when (active = '1') else (others=>'0');
+  
   
   KYPD : PmodKYPD
     port map(
