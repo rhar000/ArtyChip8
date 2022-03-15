@@ -4,22 +4,31 @@ use IEEE.std_logic_unsigned.all;
 use IEEE.numeric_std.all;
 
 entity top is
-    Port ( 
-            CLK_I : in  STD_LOGIC;
-            VGA_HS_O : out  STD_LOGIC;
-            VGA_VS_O : out  STD_LOGIC;
-            VGA_R : out  STD_LOGIC_VECTOR (3 downto 0);
-            VGA_B : out  STD_LOGIC_VECTOR (3 downto 0);
-            VGA_G : out  STD_LOGIC_VECTOR (3 downto 0));
+    Port (  CLK_I : in std_logic;
+            VGA_HS_O : out std_logic;
+            VGA_VS_O : out std_logic;
+            VGA_R : out std_logic_vector (3 downto 0);
+            VGA_B : out std_logic_vector (3 downto 0);
+            VGA_G : out std_logic_vector (3 downto 0);
+            K_ROW : in std_logic_vector (3 downto 0);
+            K_COL : buffer std_logic_vector (3 downto 0));
 end top;
 
 architecture Behavioral of top is
 
 component clk_wiz_0
-    Port (
-  CLK_IN1           : in     std_logic;
-  CLK_OUT1          : out    std_logic
+    Port (  CLK_IN1 : in std_logic;
+            CLK_OUT1 : out std_logic
  );
+end component;
+
+component PmodKYPD
+    Port (
+        Col : out std_logic_vector(3 downto 0);
+        Row : in std_logic_vector(3 downto 0);
+        Decoded : out std_logic_vector(3 downto 0);
+        Clk : in std_logic
+    );
 end component;
 
 constant FRAME_WIDTH : natural := 1920;
@@ -58,18 +67,22 @@ signal vga_red : std_logic_vector(3 downto 0);
 signal vga_green : std_logic_vector(3 downto 0);
 signal vga_blue : std_logic_vector(3 downto 0);
 
-signal red_colour : std_logic_vector(3 downto 0) := "0101";
-
 signal h_pxl_cntr : std_logic_vector(8 downto 0) := (others =>'0');
 signal v_pxl_cntr : std_logic_vector(8 downto 0) := (others =>'0');
 signal h_pxl : std_logic_vector(6 downto 0) := (others =>'0');
 signal v_pxl : std_logic_vector(5 downto 0) := (others =>'0');
 
+signal Row : std_logic_vector(3 downto 0);
+signal Col : std_logic_vector(3 downto 0);
+signal OutDecoded : std_logic_vector(3 downto 0);
+signal NewCol : std_logic_vector(3 downto 0);
+
+
 type rom_type is array (0 to 63, 0 to 31) of std_logic_vector(3 downto 0);
 
 signal ROM : rom_type := (
-    (x"f",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
-    (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
+    (x"0",x"0",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
+    (x"0",x"0",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
     (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
     (x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0"),
     (x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3",x"0",x"1",x"2",x"3"),
@@ -134,18 +147,28 @@ signal ROM : rom_type := (
     (x"f",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0",x"3",x"2",x"1",x"0")
 );
 
-
 begin
-  
-   
+    Row <= K_ROW;
+    Col <= K_COL;
+
 clk_div_inst : clk_wiz_0
   port map
    (
     CLK_IN1 => CLK_I,
     CLK_OUT1 => pxl_clk);
 
-  vga_red <= ROM( to_integer(unsigned(h_pxl)), to_integer(unsigned(v_pxl)) ) when (active = '1') else (others=>'0');
- 
+  vga_red <= ROM(to_integer(unsigned(h_pxl)), to_integer(unsigned(v_pxl))) when (active = '1') else (others=>'0');
+  
+  KYPD : PmodKYPD
+    port map(
+        Col => Col,
+        Row => Row,
+        Decoded => OutDecoded,
+        Clk => pxl_clk
+    );
+--  ROM(1,1) <= Row;
+  ROM(0,0) <= OutDecoded;
+  
   process (pxl_clk)
   begin
     if (rising_edge(pxl_clk)) then
@@ -204,6 +227,7 @@ clk_div_inst : clk_wiz_0
     if (rising_edge(pxl_clk)) then
       if (v_cntr_reg >= (V_FP + FRAME_HEIGHT - 1)) and (v_cntr_reg < (V_FP + FRAME_HEIGHT + V_PW - 1)) then
         v_sync_reg <= V_POL;
+         
       else
         v_sync_reg <= not(V_POL);
       end if;
