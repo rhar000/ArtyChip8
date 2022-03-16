@@ -9,7 +9,9 @@ entity PmodVGA is
             VGA_VS_O : out std_logic;
             VGA_R : out std_logic_vector (3 downto 0);
             VGA_B : out std_logic_vector (3 downto 0);
-            VGA_G : out std_logic_vector (3 downto 0));
+            VGA_G : out std_logic_vector (3 downto 0);
+            TestPxl : in std_logic_vector (3 downto 0);
+            TestPxl2 : in std_logic_vector (3 downto 0));
 end PmodVGA;
 
 architecture Behavioral of PmodVGA is
@@ -62,6 +64,9 @@ begin
     vga_red <= f_buffer(to_integer(unsigned(h_pxl)), to_integer(unsigned(v_pxl))) when (active = '1') else (others=>'0');
     vga_green <= f_buffer(to_integer(unsigned(h_pxl)), to_integer(unsigned(v_pxl))) when (active = '1') else (others=>'0');
     vga_blue <= f_buffer(to_integer(unsigned(h_pxl)), to_integer(unsigned(v_pxl))) when (active = '1') else (others=>'0');
+    
+    f_buffer(0,0) <= TestPxl;
+    f_buffer(1,1) <= TestPxl2;
     
     process (pxl_clk)
     begin

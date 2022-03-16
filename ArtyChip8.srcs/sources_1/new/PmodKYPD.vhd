@@ -4,7 +4,7 @@ use IEEE.std_logic_unsigned.all;
 use IEEE.numeric_std.all;
 
 entity PmodKYPD is
-    Port (  Col : out std_logic_vector(3 downto 0);
+    Port (  Col : buffer std_logic_vector(3 downto 0);
             Row : in std_logic_vector(3 downto 0);
             Decoded : out std_logic_vector(3 downto 0);
             Clk : in std_logic);
