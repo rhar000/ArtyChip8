@@ -94,6 +94,7 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
   D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodKYPD.vhd
+  D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd
   D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd
 }
 read_ip -quiet D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci

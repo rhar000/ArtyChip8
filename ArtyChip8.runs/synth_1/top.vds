@@ -2,8 +2,8 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Tue Mar 15 03:31:54 2022
-# Process ID: 31160
+# Start of session at: Tue Mar 15 23:24:12 2022
+# Process ID: 27076
 # Current directory: D:/Code/ArtyA7/ArtyChip8/ArtyChip8.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
 # Log file: D:/Code/ArtyA7/ArtyChip8/ArtyChip8.runs/synth_1/top.vds
@@ -17,70 +17,74 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 52724
+INFO: [Synth 8-7075] Helper process launched with PID 48720
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1073.535 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1079.797 ; gain = 0.000
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-2040] formal port col of mode out cannot be associated with actual port k_col of mode buffer [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:54]
 INFO: [Synth 8-638] synthesizing module 'top' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:17]
-INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'D:/Code/ArtyA7/ArtyChip8/ArtyChip8.runs/synth_1/.Xil/Vivado-31160-DESKTOP-BN0IERJ/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'clk_div_inst' of component 'clk_wiz_0' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:154]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.runs/synth_1/.Xil/Vivado-31160-DESKTOP-BN0IERJ/realtime/clk_wiz_0_stub.vhdl:13]
-INFO: [Synth 8-3491] module 'PmodKYPD' declared at 'D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodKYPD.vhd:6' bound to instance 'KYPD' of component 'PmodKYPD' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:165]
-INFO: [Synth 8-638] synthesizing module 'PmodKYPD' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodKYPD.vhd:15]
-INFO: [Synth 8-256] done synthesizing module 'PmodKYPD' (1#1) [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodKYPD.vhd:15]
-INFO: [Synth 8-256] done synthesizing module 'top' (2#1) [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:17]
+INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'D:/Code/ArtyA7/ArtyChip8/ArtyChip8.runs/synth_1/.Xil/Vivado-27076-DESKTOP-BN0IERJ/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'Sys_Clk' of component 'clk_wiz_0' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:47]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.runs/synth_1/.Xil/Vivado-27076-DESKTOP-BN0IERJ/realtime/clk_wiz_0_stub.vhdl:13]
+INFO: [Synth 8-3491] module 'PmodKYPD' declared at 'D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodKYPD.vhd:6' bound to instance 'KYPD' of component 'PmodKYPD' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:52]
+INFO: [Synth 8-638] synthesizing module 'PmodKYPD' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodKYPD.vhd:13]
+INFO: [Synth 8-256] done synthesizing module 'PmodKYPD' (1#1) [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodKYPD.vhd:13]
+INFO: [Synth 8-3491] module 'PmodVGA' declared at 'D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:6' bound to instance 'VGA' of component 'PmodVGA' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:59]
+INFO: [Synth 8-638] synthesizing module 'PmodVGA' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:15]
+INFO: [Synth 8-256] done synthesizing module 'PmodVGA' (2#1) [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:15]
+INFO: [Synth 8-256] done synthesizing module 'top' (3#1) [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:17]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1098.613 ; gain = 25.078
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1117.355 ; gain = 37.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1098.613 ; gain = 25.078
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1117.355 ; gain = 37.559
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1098.613 ; gain = 25.078
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1117.355 ; gain = 37.559
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1098.613 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1117.355 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_div_inst'
+Parsing XDC File [d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'Sys_Clk'
 WARNING: [Vivado 12-584] No ports matched ''. [d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc:1]
 WARNING: [Vivado 12-584] No ports matched ''. [d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc:4]
-Finished Parsing XDC File [d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clk_div_inst'
+Finished Parsing XDC File [d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'Sys_Clk'
 Parsing XDC File [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/constrs_1/imports/Hardware Constraints/Arty-A7-35-Master.xdc]
 Finished Parsing XDC File [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/constrs_1/imports/Hardware Constraints/Arty-A7-35-Master.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/constrs_1/imports/Hardware Constraints/Arty-A7-35-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1207.117 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1210.484 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1207.117 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1210.484 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1207.117 ; gain = 133.582
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1210.484 ; gain = 130.688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35ticsg324-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1207.117 ; gain = 133.582
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1210.484 ; gain = 130.688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property IO_BUFFER_TYPE = NONE for CLK_I. (constraint file  d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 5).
 Applied set_property CLOCK_BUFFER_TYPE = NONE for CLK_I. (constraint file  d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 6).
-Applied set_property DONT_TOUCH = true for clk_div_inst. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Sys_Clk. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1207.117 ; gain = 133.582
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1210.484 ; gain = 130.688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1207.117 ; gain = 133.582
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1210.484 ; gain = 130.688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -108,9 +112,6 @@ Detailed RTL Component Info :
 	   3 Input   32 Bit        Muxes := 1     
 	  15 Input   32 Bit        Muxes := 1     
 	   4 Input    4 Bit        Muxes := 1     
-	  64 Input    4 Bit        Muxes := 1     
-	   6 Input    4 Bit        Muxes := 1     
-	  32 Input    3 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -127,48 +128,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1207.117 ; gain = 133.582
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-ROM: Preliminary Mapping	Report
-+------------+------------+---------------+----------------+
-|Module Name | RTL Object | Depth x Width | Implemented As | 
-+------------+------------+---------------+----------------+
-|top         | ROM[0,1]   | 64x2          | LUT            | 
-|top         | ROM[0,2]   | 64x2          | LUT            | 
-|top         | ROM[0,3]   | 64x1          | LUT            | 
-|top         | ROM[0,4]   | 64x1          | LUT            | 
-|top         | ROM[0,5]   | 64x2          | LUT            | 
-|top         | ROM[0,1]   | 64x2          | LUT            | 
-|top         | ROM[0,2]   | 64x2          | LUT            | 
-|top         | ROM[0,3]   | 64x1          | LUT            | 
-|top         | ROM[0,4]   | 64x1          | LUT            | 
-|top         | ROM[0,5]   | 64x2          | LUT            | 
-+------------+------------+---------------+----------------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1210.484 ; gain = 130.688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1207.117 ; gain = 133.582
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1210.484 ; gain = 130.688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1207.117 ; gain = 133.582
+Finished Timing Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1210.484 ; gain = 130.688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1211.965 ; gain = 138.430
+Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1217.418 ; gain = 137.621
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -186,37 +164,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1211.965 ; gain = 138.430
+Finished IO Insertion : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1217.418 ; gain = 137.621
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1211.965 ; gain = 138.430
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1217.418 ; gain = 137.621
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1211.965 ; gain = 138.430
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1217.418 ; gain = 137.621
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1211.965 ; gain = 138.430
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1217.418 ; gain = 137.621
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1211.965 ; gain = 138.430
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1217.418 ; gain = 137.621
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1211.965 ; gain = 138.430
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1217.418 ; gain = 137.621
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -234,37 +212,35 @@ Report Cell Usage:
 |      |Cell           |Count |
 +------+---------------+------+
 |1     |clk_wiz_0_bbox |     1|
-|2     |CARRY4         |    24|
-|3     |LUT1           |     9|
-|4     |LUT2           |    58|
-|5     |LUT3           |    11|
-|6     |LUT4           |    22|
-|7     |LUT5           |    14|
-|8     |LUT6           |    27|
-|9     |FDRE           |   103|
-|10    |IBUF           |     4|
-|11    |OBUF           |    18|
+|2     |CARRY4         |    21|
+|3     |LUT1           |     3|
+|4     |LUT2           |    34|
+|5     |LUT4           |     8|
+|6     |LUT5           |     4|
+|7     |LUT6           |     5|
+|8     |FDRE           |    66|
+|9     |OBUF           |    18|
 +------+---------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1211.965 ; gain = 138.430
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1217.418 ; gain = 137.621
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:21 . Memory (MB): peak = 1211.965 ; gain = 29.926
-Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1211.965 ; gain = 138.430
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 1217.418 ; gain = 44.492
+Synthesis Optimization Complete : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1217.418 ; gain = 137.621
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1219.723 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 24 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1218.828 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 21 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1223.762 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1225.305 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-22 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+25 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1223.762 ; gain = 150.227
+synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1225.305 ; gain = 145.508
 INFO: [Common 17-1381] The checkpoint 'D:/Code/ArtyA7/ArtyChip8/ArtyChip8.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Mar 15 03:32:26 2022...
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 15 23:24:46 2022...

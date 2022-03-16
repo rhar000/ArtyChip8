@@ -1,6 +1,6 @@
-set_property SRC_FILE_INFO {cfile:d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc rfile:../../../ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc id:1 order:EARLY scoped_inst:clk_div_inst} [current_design]
+set_property SRC_FILE_INFO {cfile:d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc rfile:../../../ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc id:1 order:EARLY scoped_inst:Sys_Clk} [current_design]
 set_property SRC_FILE_INFO {cfile:{D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/constrs_1/imports/Hardware Constraints/Arty-A7-35-Master.xdc} rfile:{../../../ArtyChip8.srcs/constrs_1/imports/Hardware Constraints/Arty-A7-35-Master.xdc} id:2} [current_design]
-current_instance clk_div_inst
+current_instance Sys_Clk
 set_property src_info {type:SCOPED_XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 create_clock -period 10.000 [get_ports -no_traverse {}]
 set_property src_info {type:SCOPED_XDC file:1 line:4 export:INPUT save:INPUT read:READ} [current_design]

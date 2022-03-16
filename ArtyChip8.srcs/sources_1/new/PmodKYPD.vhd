@@ -4,12 +4,10 @@ use IEEE.std_logic_unsigned.all;
 use IEEE.numeric_std.all;
 
 entity PmodKYPD is
-    Port (
-        Col : out std_logic_vector(3 downto 0);
-        Row : in std_logic_vector(3 downto 0);
-        Decoded : out std_logic_vector(3 downto 0);
-        Clk : in std_logic
-    );
+    Port (  Col : out std_logic_vector(3 downto 0);
+            Row : in std_logic_vector(3 downto 0);
+            Decoded : out std_logic_vector(3 downto 0);
+            Clk : in std_logic);
 end PmodKYPD;
 
 architecture Behavioral of PmodKYPD is
@@ -17,9 +15,9 @@ architecture Behavioral of PmodKYPD is
     signal key_num : integer := 0;
     signal col_sel : std_logic_vector(1 downto 0) := (others => '0');
     
-    
 begin
     Decoded <= std_logic_vector(to_unsigned(key_num,4));
+    
     multiplex: process(Clk)
     begin
         if rising_edge(Clk) then
