@@ -4,10 +4,10 @@
 
 
 
-****** Vivado v2020.1 (64-bit)
-  **** SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
-  **** IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+****** Vivado v2021.2 (64-bit)
+  **** SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+  **** IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 
 source top.tcl -notrace
 Command: synth_design -top top -part xc7a35ticsg324-1L
@@ -17,79 +17,238 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 64692
+INFO: [Synth 8-7075] Helper process launched with PID 19988
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1081.059 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'top' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:18]
-INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'D:/Code/ArtyA7/ArtyChip8/ArtyChip8.runs/synth_1/.Xil/Vivado-26796-DESKTOP-BN0IERJ/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'Sys_Clk' of component 'clk_wiz_0' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:72]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.runs/synth_1/.Xil/Vivado-26796-DESKTOP-BN0IERJ/realtime/clk_wiz_0_stub.vhdl:13]
-INFO: [Synth 8-3491] module 'PmodKYPD' declared at 'D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodKYPD.vhd:6' bound to instance 'KYPD' of component 'PmodKYPD' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:77]
 INFO: [Synth 8-638] synthesizing module 'PmodKYPD' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodKYPD.vhd:13]
 INFO: [Synth 8-256] done synthesizing module 'PmodKYPD' (1#1) [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodKYPD.vhd:13]
-INFO: [Synth 8-3491] module 'PmodVGA' declared at 'D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:6' bound to instance 'VGA' of component 'PmodVGA' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:84]
-INFO: [Synth 8-638] synthesizing module 'PmodVGA' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:17]
-INFO: [Synth 8-256] done synthesizing module 'PmodVGA' (2#1) [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:17]
-INFO: [Synth 8-3491] module 'Control' declared at 'D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Control.vhd:4' bound to instance 'SYS_CNTRL' of component 'Control' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:95]
-INFO: [Synth 8-638] synthesizing module 'Control' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Control.vhd:8]
-INFO: [Synth 8-256] done synthesizing module 'Control' (3#1) [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Control.vhd:8]
-INFO: [Synth 8-3491] module 'Rom_Bank' declared at 'D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Rom_Bank.vhd:6' bound to instance 'SYS_ROM' of component 'Rom_Bank' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:100]
+INFO: [Synth 8-638] synthesizing module 'PmodVGA' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:20]
+WARNING: [Synth 8-6014] Unused sequential element vga_green_reg_reg was removed.  [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:148]
+WARNING: [Synth 8-6014] Unused sequential element vga_blue_reg_reg was removed.  [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:149]
+WARNING: [Synth 8-3848] Net f_buffer[1,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[2,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[3,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[4,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[5,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[6,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[7,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[8,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[9,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[10,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[11,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[12,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[13,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[14,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[15,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[16,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[17,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[18,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[19,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[20,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[21,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[22,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[23,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[24,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[25,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[26,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[27,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[28,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[29,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[30,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[31,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[32,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[33,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[34,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[35,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[36,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[37,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[38,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[39,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[40,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[41,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[42,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[43,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[44,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[45,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[46,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[47,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[48,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[49,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[50,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[51,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[52,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[53,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[54,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[55,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[56,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[57,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[58,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[59,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[60,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[61,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[62,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[63,0] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[0,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[5,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[6,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[7,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[8,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[9,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[10,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[11,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[12,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[13,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[14,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[15,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[16,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[17,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[18,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[19,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[20,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[21,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[22,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[23,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[24,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[25,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[26,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[27,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[28,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[29,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[30,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[31,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[32,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[33,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[34,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[35,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[36,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[37,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[38,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[39,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+WARNING: [Synth 8-3848] Net f_buffer[40,1] in module/entity PmodVGA does not have driver. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:63]
+INFO: [Common 17-14] Message 'Synth 8-3848' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-256] done synthesizing module 'PmodVGA' (2#1) [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd:20]
 INFO: [Synth 8-638] synthesizing module 'Rom_Bank' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Rom_Bank.vhd:15]
-INFO: [Synth 8-256] done synthesizing module 'Rom_Bank' (4#1) [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Rom_Bank.vhd:15]
+INFO: [Synth 8-256] done synthesizing module 'Rom_Bank' (3#1) [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Rom_Bank.vhd:15]
+INFO: [Synth 8-638] synthesizing module 'Control' [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Control.vhd:19]
+INFO: [Synth 8-256] done synthesizing module 'Control' (4#1) [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Control.vhd:19]
 INFO: [Synth 8-256] done synthesizing module 'top' (5#1) [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:18]
+WARNING: [Synth 8-7129] Port ADDR_BUS[14] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_BUS[13] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_BUS[12] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_BUS[11] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_BUS[10] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_BUS[9] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_BUS[8] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_BUS[7] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_BUS[6] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_BUS[5] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_BUS[4] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_BUS[3] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_BUS[2] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_BUS[1] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR_BUS[0] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ROM_OE in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT[7] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT[6] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT[5] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT[4] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT[3] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT[2] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT[1] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT[0] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT2[7] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT2[6] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT2[5] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT2[4] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT2[3] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT2[2] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT2[1] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT2[0] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT3[7] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT3[6] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT3[5] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT3[4] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT3[3] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT3[2] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT3[1] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port TESTOUT3[0] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port I_REG[11] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port I_REG[10] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port I_REG[9] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port I_REG[8] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port I_REG[7] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port I_REG[6] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port I_REG[5] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port I_REG[4] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port I_REG[3] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port I_REG[2] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port I_REG[1] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port I_REG[0] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Clk in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SP[7] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SP[6] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SP[5] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SP[4] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SP[3] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SP[2] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SP[1] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SP[0] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA_BUS[7] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA_BUS[6] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA_BUS[5] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA_BUS[4] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA_BUS[3] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA_BUS[2] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA_BUS[1] in module Control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA_BUS[0] in module Control is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1116.816 ; gain = 35.758
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1116.816 ; gain = 35.758
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1116.816 ; gain = 35.758
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1116.816 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1412.512 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'Sys_Clk'
-WARNING: [Vivado 12-584] No ports matched ''. [d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc:1]
-WARNING: [Vivado 12-584] No ports matched ''. [d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc:4]
-Finished Parsing XDC File [d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'Sys_Clk'
 Parsing XDC File [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/constrs_1/imports/Hardware Constraints/Arty-A7-35-Master.xdc]
 Finished Parsing XDC File [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/constrs_1/imports/Hardware Constraints/Arty-A7-35-Master.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/constrs_1/imports/Hardware Constraints/Arty-A7-35-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1210.828 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1412.512 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1210.828 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1210.828 ; gain = 129.770
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35ticsg324-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1210.828 ; gain = 129.770
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for CLK_I. (constraint file  d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 5).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for CLK_I. (constraint file  d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc, line 6).
-Applied set_property DONT_TOUCH = true for Sys_Clk. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1210.828 ; gain = 129.770
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1210.828 ; gain = 129.770
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:13 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -103,13 +262,14 @@ Detailed RTL Component Info :
 	   2 Input    2 Bit       Adders := 1     
 +---Registers : 
 	               32 Bit    Registers := 2     
+	               15 Bit    Registers := 1     
 	                9 Bit    Registers := 2     
-	                8 Bit    Registers := 1     
+	                8 Bit    Registers := 4     
 	                7 Bit    Registers := 1     
 	                6 Bit    Registers := 1     
 	                4 Bit    Registers := 2     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 4     
+	                1 Bit    Registers := 5     
 +---Muxes : 
 	   2 Input   32 Bit        Muxes := 1     
 	   6 Input   32 Bit        Muxes := 1     
@@ -117,7 +277,7 @@ Detailed RTL Component Info :
 	   5 Input   32 Bit        Muxes := 3     
 	   3 Input   32 Bit        Muxes := 1     
 	  15 Input   32 Bit        Muxes := 1     
-	   4 Input    8 Bit        Muxes := 1     
+	   8 Input    8 Bit        Muxes := 1     
 	   4 Input    4 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -134,26 +294,29 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3936] Found unconnected internal register 'TESTOUT_reg' and it is trimmed from '8' to '4' bits. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:66]
+WARNING: [Synth 8-3936] Found unconnected internal register 'SYS_ROM/Q_reg' and it is trimmed from '8' to '4' bits. [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Rom_Bank.vhd:27]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1210.828 ; gain = 129.770
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1210.828 ; gain = 129.770
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1210.828 ; gain = 129.770
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1214.516 ; gain = 133.457
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -167,90 +330,89 @@ Finished Flattening Before IO Insertion
 ---------------------------------------------------------------------------------
 Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-4649] Removing BlackBox instance SYS_CNTRL of module Control having unconnected or no output ports
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 1214.516 ; gain = 133.457
+Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 1214.516 ; gain = 133.457
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 1214.516 ; gain = 133.457
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 1214.516 ; gain = 133.457
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 1214.516 ; gain = 133.457
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 1214.516 ; gain = 133.457
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 Report BlackBoxes: 
-+------+--------------+----------+
-|      |BlackBox name |Instances |
-+------+--------------+----------+
-|1     |clk_wiz_0     |         1|
-+------+--------------+----------+
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
 
 Report Cell Usage: 
-+------+---------------+------+
-|      |Cell           |Count |
-+------+---------------+------+
-|1     |clk_wiz_0_bbox |     1|
-|2     |CARRY4         |    24|
-|3     |LUT1           |     9|
-|4     |LUT2           |    57|
-|5     |LUT3           |    10|
-|6     |LUT4           |    26|
-|7     |LUT5           |     8|
-|8     |LUT6           |    22|
-|9     |FDRE           |   103|
-|10    |IBUF           |     4|
-|11    |OBUF           |    18|
-+------+---------------+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    24|
+|3     |LUT1   |    10|
+|4     |LUT2   |    57|
+|5     |LUT3   |     8|
+|6     |LUT4   |    23|
+|7     |LUT5   |     6|
+|8     |LUT6   |    25|
+|9     |FDRE   |   103|
+|10    |IBUF   |     5|
+|11    |OBUF   |    18|
++------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 1214.516 ; gain = 133.457
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 1412.512 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:23 . Memory (MB): peak = 1214.516 ; gain = 39.445
-Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1214.516 ; gain = 133.457
+Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:26 . Memory (MB): peak = 1412.512 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 1412.512 ; gain = 0.000
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1214.516 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1412.512 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 24 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1223.656 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1412.512 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
+Synth Design complete, checksum: 657dcb3f
 INFO: [Common 17-83] Releasing license: Synthesis
-32 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+26 Infos, 174 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1223.656 ; gain = 142.598
+synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1412.512 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'D:/Code/ArtyA7/ArtyChip8/ArtyChip8.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Mar 16 02:29:33 2022...
+INFO: [Common 17-206] Exiting Vivado at Fri Mar 18 21:49:35 2022...

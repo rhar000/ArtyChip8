@@ -1,6 +1,7 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Code/ArtyA7/ArtyChip8/ArtyChip8.sim/sim_1/impl/func/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/ArtyA7/ArtyChip8/ArtyChip8.sim/sim_1/impl/func/xsim/top_func_impl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Control'
+INFO: [VRFC 10-3107] analyzing entity 'PmodKYPD'
+INFO: [VRFC 10-3107] analyzing entity 'PmodVGA'
 INFO: [VRFC 10-3107] analyzing entity 'clk_wiz_0_clk_wiz_0_clk_wiz'
 INFO: [VRFC 10-3107] analyzing entity 'clk_wiz_0'
 INFO: [VRFC 10-3107] analyzing entity 'top'

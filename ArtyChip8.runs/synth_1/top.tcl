@@ -71,21 +71,17 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 2
-set_param synth.incrementalSynthesisCache C:/Users/harla/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-27756-DESKTOP-BN0IERJ/incrSyn
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
+set_msg_config -id {HDL 9-1061} -limit 100000
+set_msg_config -id {HDL 9-1654} -limit 100000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35ticsg324-1L
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir D:/Code/ArtyA7/ArtyChip8/ArtyChip8.cache/wt [current_project]
 set_property parent.project_path D:/Code/ArtyA7/ArtyChip8/ArtyChip8.xpr [current_project]
-set_property XPM_LIBRARIES XPM_CDC [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property ip_output_repo d:/Code/ArtyA7/ArtyChip8/ArtyChip8.cache/ip [current_project]
@@ -99,11 +95,6 @@ read_vhdl -library xil_defaultlib {
   D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Rom_Bank.vhd
   D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd
 }
-read_ip -quiet D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
-set_property used_in_implementation false [get_files -all d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
-set_property used_in_implementation false [get_files -all d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
-set_property used_in_implementation false [get_files -all d:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
-
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -122,6 +113,9 @@ close [open __synthesis_is_running__ w]
 OPTRACE "synth_design" START { }
 synth_design -top top -part xc7a35ticsg324-1L
 OPTRACE "synth_design" END { }
+if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
+ send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"
+}
 
 
 OPTRACE "write_checkpoint" START { CHECKPOINT }

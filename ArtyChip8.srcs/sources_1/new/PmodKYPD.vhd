@@ -22,10 +22,10 @@ begin
     begin
         if rising_edge(Clk) then
             count <= count+1;
-            if (count = 1000) then
+            if (count = 9999) then
                 count <= 0;
                 col_sel <= col_sel + 1;
-            elsif (count = 100) then
+            elsif (count = 99) then
                 if(col_sel = 0) then
                     if (Row = "0111") then key_num <= 10;
                     elsif (Row = "1011") then key_num <= 11;
@@ -41,7 +41,7 @@ begin
                 elsif(col_sel = 2) then
                     if (Row = "0111") then key_num <= 2;
                     elsif (Row = "1011") then key_num <= 5;
-                    elsif (Row = "1101") then key_num <= 9;
+                    elsif (Row = "1101") then key_num <= 8;
                     elsif (Row = "1110") then key_num <= 15;
                     end if;
                 elsif(col_sel = 3) then

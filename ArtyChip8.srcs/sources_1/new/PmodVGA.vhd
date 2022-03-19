@@ -11,7 +11,10 @@ entity PmodVGA is
             VGA_B : out std_logic_vector (3 downto 0);
             VGA_G : out std_logic_vector (3 downto 0);
             TestPxl : in std_logic_vector (3 downto 0);
-            TestPxl2 : in std_logic_vector (3 downto 0));
+            TestPxl2 : in std_logic_vector (3 downto 0);
+            TestPxl3 : in std_logic_vector (3 downto 0);
+            TestPxl4 : in std_logic_vector (3 downto 0);
+            TestPxl5 : in std_logic_vector (3 downto 0));
 end PmodVGA;
 
 architecture Behavioral of PmodVGA is
@@ -67,6 +70,9 @@ begin
     
     f_buffer(0,0) <= TestPxl;
     f_buffer(1,1) <= TestPxl2;
+    f_buffer(2,1) <= TestPxl3;
+    f_buffer(3,1) <= TestPxl4;
+    f_buffer(4,1) <= TestPxl5;
     
     process (pxl_clk)
     begin

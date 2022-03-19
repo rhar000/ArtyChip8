@@ -112,20 +112,19 @@ proc step_failed { step } {
   set endFile ".$step.error.rst"
   set ch [open $endFile w]
   close $ch
+OPTRACE "impl_1" END { }
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
+set_msg_config -id {HDL 9-1061} -limit 100000
+set_msg_config -id {HDL 9-1654} -limit 100000
 
-OPTRACE "Implementation" START { ROLLUP_1 }
+OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
 start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 2
-  set_param synth.incrementalSynthesisCache C:/Users/harla/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-27756-DESKTOP-BN0IERJ/incrSyn
   set_param xicom.use_bs_reader 1
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35ticsg324-1L
@@ -137,17 +136,15 @@ OPTRACE "set parameters" START { }
   set_property parent.project_path D:/Code/ArtyA7/ArtyChip8/ArtyChip8.xpr [current_project]
   set_property ip_output_repo D:/Code/ArtyA7/ArtyChip8/ArtyChip8.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  set_property XPM_LIBRARIES XPM_CDC [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet D:/Code/ArtyA7/ArtyChip8/ArtyChip8.runs/synth_1/top.dcp
-  read_ip -quiet D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
 OPTRACE "read constraints: implementation" START { }
   read_xdc {{D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/constrs_1/imports/Hardware Constraints/Arty-A7-35-Master.xdc}}
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
-  link_design -top top -part xc7a35ticsg324-1L
+  link_design -top top -part xc7a35ticsg324-1L 
 OPTRACE "link_design" END { }
 OPTRACE "gray box cells" START { }
 OPTRACE "gray box cells" END { }
@@ -308,8 +305,7 @@ set rc [catch {
   create_msg_db write_bitstream.pb
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }
-  set_property XPM_LIBRARIES XPM_CDC [current_project]
-  catch { write_mem_info -force top.mmi }
+  catch { write_mem_info -force -no_partial_mmi top.mmi }
 OPTRACE "write_bitstream setup" END { }
 OPTRACE "write_bitstream" START { }
   write_bitstream -force top.bit 
@@ -331,4 +327,4 @@ if {$rc} {
 
 OPTRACE "write_bitstream misc" END { }
 OPTRACE "Phase: Write Bitstream" END { }
-OPTRACE "Implementation" END { }
+OPTRACE "impl_1" END { }

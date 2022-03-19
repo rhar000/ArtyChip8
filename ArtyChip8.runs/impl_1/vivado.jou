@@ -1,12 +1,13 @@
 #-----------------------------------------------------------
-# Vivado v2020.1 (64-bit)
-# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
-# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Wed Mar 16 02:29:41 2022
-# Process ID: 62924
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Fri Mar 18 21:49:42 2022
+# Process ID: 12760
 # Current directory: D:/Code/ArtyA7/ArtyChip8/ArtyChip8.runs/impl_1
 # Command line: vivado.exe -log top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source top.tcl -notrace
 # Log file: D:/Code/ArtyA7/ArtyChip8/ArtyChip8.runs/impl_1/top.vdi
 # Journal file: D:/Code/ArtyA7/ArtyChip8/ArtyChip8.runs/impl_1\vivado.jou
+# Running On: DESKTOP-BN0IERJ, OS: Windows, CPU Frequency: 3600 MHz, CPU Physical cores: 8, Host memory: 34276 MB
 #-----------------------------------------------------------
 source top.tcl -notrace
