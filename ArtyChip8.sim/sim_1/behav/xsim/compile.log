@@ -1,13 +1,8 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Control.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Control'
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodKYPD.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'PmodKYPD'
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PmodVGA.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'PmodVGA'
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Rom_Bank.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Rom_Bank'
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'top'
-ERROR: [VRFC 10-1471] type error near addr_bus ; current type natural; expected type std_logic_vector [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:73]
-ERROR: [VRFC 10-3782] unit 'behavioral' ignored due to previous errors [D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd:18]
-INFO: [VRFC 10-3070] VHDL file 'D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Main.vhd' ignored due to errors
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PC_Logic.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'PC_Logic'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Ram_Bank.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Ram_Bank'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/std_reg.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'std_reg'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sim_1/new/Testbench.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'test_Main'

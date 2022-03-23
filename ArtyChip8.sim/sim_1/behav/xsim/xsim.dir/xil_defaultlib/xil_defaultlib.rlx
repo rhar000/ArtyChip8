@@ -1,0 +1,8 @@
+0.7
+2020.2
+Oct 19 2021
+03:16:22
+D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sim_1/new/Testbench.vhd,1648038683,vhdl,,,,test_main,,,,,,,,
+D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/PC_Logic.vhd,1648034905,vhdl,D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sim_1/new/Testbench.vhd,,,pc_logic,,,,,,,,
+D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/Ram_Bank.vhd,1648036623,vhdl,D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sim_1/new/Testbench.vhd,,,ram_bank,,,,,,,,
+D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sources_1/new/std_reg.vhd,1647946128,vhdl,D:/Code/ArtyA7/ArtyChip8/ArtyChip8.srcs/sim_1/new/Testbench.vhd,,,std_reg,,,,,,,,

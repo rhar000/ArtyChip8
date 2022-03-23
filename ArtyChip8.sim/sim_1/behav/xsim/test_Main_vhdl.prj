@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../ArtyChip8.srcs/sources_1/new/PC_Logic.vhd" \
+"../../../../ArtyChip8.srcs/sources_1/new/Ram_Bank.vhd" \
+"../../../../ArtyChip8.srcs/sources_1/new/std_reg.vhd" \
+"../../../../ArtyChip8.srcs/sim_1/new/Testbench.vhd" \
+
+# Do not sort compile order
+nosort
